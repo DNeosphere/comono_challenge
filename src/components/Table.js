@@ -19,7 +19,6 @@ class Table extends Component {
     this.handleSortName = this.handleSortName.bind(this);
     this.handleSortAge = this.handleSortAge.bind(this);
     this.handleSortSport = this.handleSortSport.bind(this);
-    this.getSortOrder = this.getSortOrder.bind(this);
   }
 
   getSortOrder(prop) {
