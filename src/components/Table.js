@@ -19,7 +19,7 @@ class Table extends Component {
     this.handleSortName = this.handleSortName.bind(this);
     this.handleSortAge = this.handleSortAge.bind(this);
     this.handleSortSport = this.handleSortSport.bind(this);
-    this.getSortOrder = this.handleSortSport.bind(this);
+    this.getSortOrder = this.getSortOrder.bind(this);
   }
 
   getSortOrder(prop) {
@@ -33,17 +33,22 @@ class Table extends Component {
     }
   }
   handleSortName () {
-    alert('hola')
-    const sortedDAta = this.props.data(this.getSortOrder('name'))
+    let sortedDAtaAge = this.props.data.sort(this.getSortOrder('name'))
+    this.setState( {unsortedData: sortedDAtaAge} )
+    console.log(sortedDAtaAge)
+
   }
   handleSortAge () {
-    const sortedDAta = this.props.data.sort(this.getSortOrder('age'))
-    this.setState( {unsortedData: sortedDAta} )
-    console.log(sortedDAta)
+    let sortedDAtaAge = this.props.data.sort(this.getSortOrder('age'))
+    this.setState( {unsortedData: sortedDAtaAge} )
+    console.log(sortedDAtaAge)
   }
   handleSortSport() {
-    console.log('hola')
+    let sortedDAtaAge = this.props.data.sort(this.getSortOrder('sport'))
+    this.setState( {unsortedData: sortedDAtaAge} )
+    console.log(sortedDAtaAge)
   }
+
 
   render() {
     return (
