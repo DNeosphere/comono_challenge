@@ -3,15 +3,6 @@ import React, { Component } from "react";
 
 import "./Table.css";
 
-//compare function helper
-
-/* const rawDAta = Data
-const sortedDAta = Data.sort(getSortOrder('name'))
-console.log(sortedDAta)
-console.log('unsorted', Data)
-console.log(rawDAta)  */
-
-
 class Table extends Component {
   constructor(props) {
     super(props);
@@ -24,9 +15,9 @@ class Table extends Component {
   getSortOrder(prop) {
     return function(a, b) {
         if (a[prop] > b[prop]) {
-            return 1;
-        } else if (a[prop] < b[prop]) {
             return -1;
+        } else if (a[prop] < b[prop]) {
+            return 1;
         }
         return 0;
     }
