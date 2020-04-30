@@ -1,46 +1,36 @@
-import React, { Component } from "react";
+import React, { useState } from 'react'
 
+import './Table.css'
 
-import "./Table.css";
+function Table(props) {
+    const [sortedData, setSortedData] = useState(props.data)
 
-class Table extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {unsortedData : this.props.data}
-    this.handleSortName = this.handleSortName.bind(this);
-    this.handleSortAge = this.handleSortAge.bind(this);
-    this.handleSortSport = this.handleSortSport.bind(this);
-  }
-
-  getSortOrder(prop) {
-    return function(a, b) {
-        if (a[prop] > b[prop]) {
-            return 1;
-        } else if (a[prop] < b[prop]) {
-            return -1;
-        }
-        return 0;
+    const getSortOrder = (prop) => {
+      return function(a, b) {
+          if (a[prop] > b[prop]) {
+              return 1;
+          } else if (a[prop] < b[prop]) {
+              return -1;
+          }
+          return 0;
+      }
     }
-  }
-  handleSortName () {
-    let sortedDAtaAge = this.props.data.sort(this.getSortOrder('name'))
-    this.setState( {unsortedData: sortedDAtaAge} )
-    console.log(sortedDAtaAge)
 
-  }
-  handleSortAge () {
-    let sortedDAtaAge = this.props.data.sort(this.getSortOrder('age'))
-    this.setState( {unsortedData: sortedDAtaAge} )
-    console.log(sortedDAtaAge)
-  }
-  handleSortSport() {
-    let sortedDAtaAge = this.props.data.sort(this.getSortOrder('sport'))
-    this.setState( {unsortedData: sortedDAtaAge} )
-    console.log(sortedDAtaAge)
-  }
+    const handleSortName = () => {
+      let sortedDataName = sortedData.sort(getSortOrder('name'))
+      setSortedData([...sortedDataName])
+    }
 
+    const handleSortAge = () => {
+      let sortedDataAge = sortedData.sort(getSortOrder('age'))
+      setSortedData([...sortedDataAge])
+    }
 
-  render() {
+    const handleSortSport = () => {
+      let sortedDataSport = sortedData.sort(getSortOrder('sport'))
+      setSortedData([...sortedDataSport])
+    }
+
     return (
       <div class="container">
         <table class="table-container">
@@ -50,7 +40,7 @@ class Table extends Component {
             <th>Age</th>
             <th>Sport</th>
           </tr>
-            { this.state.unsortedData.map( (character) => {
+            { sortedData.map( (character) => {
             return (
               <tr>
                   <td>{character.name}</td> 
@@ -62,13 +52,12 @@ class Table extends Component {
               })}
         </table>
         <div class="button-container">
-          <button onClick={this.handleSortName} className="myButton">Sort by name</button>
-          <button onClick={this.handleSortAge} className="myButton">Sort by age</button>
-          <button onClick={this.handleSortSport} className="myButton">Sort by sport</button>
+          <button onClick={handleSortName} className="myButton">Sort by name</button>
+          <button onClick={handleSortAge} className="myButton">Sort by age</button>
+          <button onClick={handleSortSport} className="myButton">Sort by sport</button>
         </div>
       </div>
-    );
-  }
+    )
 }
 
 export default Table;
