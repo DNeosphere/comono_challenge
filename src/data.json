@@ -21,6 +21,24 @@
     "lastName": "Panter",
     "age": "45",
     "sport": "Basket"
+  },
+  {
+    "name": "Dani",
+    "lastName": "Gomez",
+    "age": "27",
+    "sport": "Dungeons and dragons"
+  },
+  {
+    "name": "Ana",
+    "lastName": "Ceballos",
+    "age": "26",
+    "sport": "Cry"
+  },
+  {
+    "name": "Zorro",
+    "lastName": "Thief",
+    "age": "1",
+    "sport": "No te lo lleves"
   }
 ]
 
